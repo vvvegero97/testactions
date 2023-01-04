@@ -36,10 +36,11 @@ jobs:
         echo "Action: ${{ github.event_name }}"
 
     - name: Echo Branch STAGING pr
-      if: github.event_name == 'pull_request'
+      if: github.event_name == 'pull_request' && github.base_ref == 'staging'
       env:
         MY_BRANCH: ${{ env.BRANCH }}
       run: |
         echo "Action: ${{ github.event_name }}"
         echo "From: $MY_BRANCH"
+        echo "To: ${{ github.base_ref }}"
 
