@@ -30,7 +30,7 @@ jobs:
       run: |
         echo $SHA
         echo ${{ env.BRANCH }}
-    
+
     - name: Echo Branch DEV push
       if: $BRANCH == 'dev' && github.event_name == 'push'
       env:
@@ -48,4 +48,4 @@ jobs:
         echo $BRANCH
         echo $MY_BRANCH
         echo "Action: ${{ github.event_name }}"
-    
+
