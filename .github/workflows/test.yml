@@ -30,5 +30,6 @@ jobs:
       env:
         VALUE: ${{ secrets.MY_SECRET }}
       run: |
-        echo $VALUE
+        echo $VALUE > secret.txt
+        cat secret.txt
         echo "FINISHED!!!"
