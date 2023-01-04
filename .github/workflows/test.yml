@@ -27,7 +27,7 @@ jobs:
         echo ${{ env.BRANCH }}
 
     - name: Echo Branch DEV push
-      if: $BRANCH == 'dev' && github.event_name == 'push'
+      if: env.BRANCH == 'dev' && github.event_name == 'push'
       env:
         MY_BRANCH: ${{ env.BRANCH }}
       run: |
@@ -36,7 +36,7 @@ jobs:
         echo "Action: ${{ github.event_name }}"
 
     - name: Echo Branch STAGING pr
-      if: $BRANCH == 'staging' && github.event_name == 'pull_request'
+      if: env.BRANCH == 'staging' && github.event_name == 'pull_request'
       env:
         MY_BRANCH: ${{ env.BRANCH }}
       run: |
