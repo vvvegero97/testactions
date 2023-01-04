@@ -9,13 +9,13 @@ on:
     - dev
     - staging
     paths:
-    - "!.github/*"
+    - '!.github/*'
   pull_request:
     branches:
     - dev
     - staging
     paths:
-    - "!.github/*"
+    - '!.github/*'
 
 jobs:
   test:
