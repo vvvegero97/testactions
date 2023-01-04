@@ -8,10 +8,14 @@ on:
     branches:
     - dev
     - staging
+    paths:
+    - "!.github/**"
   pull_request:
     branches:
     - dev
     - staging
+    paths:
+    - "!.github/**"
 
 jobs:
   test:
