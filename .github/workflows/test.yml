@@ -45,6 +45,7 @@ jobs:
         MY_BRANCH: ${{ env.BRANCH }}
       run: |
         echo "Action: ${{ github.event_name }}"
-        echo "From: $MY_BRANCH"
+        echo "From: ${{ github.head_ref }}"
+        echo "Full ref: ${{ github.ref }}"
         echo "To: ${{ github.base_ref }}"
 
