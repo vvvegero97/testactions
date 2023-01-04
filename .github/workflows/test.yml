@@ -1,0 +1,34 @@
+name: Test-pipeline-dev
+env:
+  SHA: ${{ github.sha }}
+  BRANCH: ${{ github.ref_name }}
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Echo SHA and branch
+      run: |
+        echo $SHA
+        echo ${{ env.BRANCH }}
+    
+    - name: Echo Branch
+      env:
+        MY_BRANCH: ${{ env.BRANCH }}
+      run: |
+        echo $BRANCH
+        echo $MY_BRANCH
+    
+    - name: Echo secret
+      env:
+        VALUE: ${{ secrets.MY_SECRET }}
+      run: |
+        echo $VALUE
+        echo "FINISHED!!!"
