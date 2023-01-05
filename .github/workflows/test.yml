@@ -8,14 +8,14 @@ on:
     branches:
     - dev
     - staging
-    paths:
-    - 'README*'
+    paths-ignore:
+    - '.github/**'
   pull_request:
     branches:
     - dev
     - staging
-    paths:
-    - 'README*'
+    paths-ignore:
+    - '.github/**'
 
 jobs:
   test:
