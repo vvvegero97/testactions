@@ -1,0 +1,37 @@
+name: rollback-pipeline-dev
+env:
+  SHA: ${{ github.sha }}
+  BRANCH: ${{ github.ref_name }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      rollback_env: 
+        required: true
+        description: 'Environment to perform rollback on'
+        type: choice
+        options:
+          - "dev"
+          - "staging"
+          - "prod"
+        default: "dev"
+
+jobs:
+  rollback:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Install
+      run: |
+        echo "installing kubectl.."
+        echo "configuring AWS credentials.."
+        echo "updating kubeconfig.."
+
+    - name: rollback
+      env:
+        NS: ${{ inputs.rollback_env }}
+      run: |
+        echo "kubectl -n $NS rollout undo deployment/myapp"
