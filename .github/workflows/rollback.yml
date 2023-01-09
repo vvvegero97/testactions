@@ -1,4 +1,4 @@
-name: rollback-pipeline-dev
+name: rollback-pipeline
 env:
   SHA: ${{ github.sha }}
   BRANCH: ${{ github.ref_name }}
