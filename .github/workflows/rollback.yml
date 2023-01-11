@@ -35,7 +35,7 @@ jobs:
         NS: ${{ inputs.rollback_env }}
         FILE: ${{ secrets.ENV }}
       run: |
-        echo $FILE > .env
+        echo "$FILE" > .env
         echo "Fetched file contents:"
         cat .env
         echo "kubectl -n $NS rollout undo deployment/myapp"
